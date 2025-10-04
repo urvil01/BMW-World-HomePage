@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMW - Contact</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      background: url('https://images.pexels.com/photos/17888840/pexels-photo-17888840.jpeg?cs=srgb&dl=pexels-nikola-kolev-2438142-17888840.jpg&fm=jpg') 
+                  no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: white;
+      position: relative;
+    }
+
+    /* Overlay (lighter for clearer background) */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(2px);
+      z-index: -1;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(6px);
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+      animation: slideDown 1s ease forwards;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    header h1 {
+      color: #00aaff;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #00aaff;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after { width: 100%; }
+    nav a:hover { color: #00aaff; }
+
+    .contact {
+      margin-top: 120px;
+      padding: 50px 20px;
+      text-align: center;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .contact h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #00aaff;
+      text-shadow: 0 0 8px #00aaff;
+    }
+
+    form {
+      max-width: 550px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 35px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 25px rgba(0, 170, 255, 0.25);
+      animation: fadeForm 1.5s ease-in-out;
+    }
+
+    @keyframes fadeForm {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    input, textarea {
+      margin: 10px 0;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 16px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 12px #00aaff;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    button {
+      padding: 14px;
+      background: linear-gradient(90deg, #00aaff, #0077ff);
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+      box-shadow: 0 0 20px rgba(0,170,255,0.4);
+    }
+
+    button:hover {
+      background: white;
+      color: #00aaff;
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #00aaff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BMW Contact</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="models.html">Models</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="contact">
+    <h2>Get in Touch</h2>
+    <form>
+      <input type="text" placeholder="First Name" required>
+      <input type="text" placeholder="Last Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <input type="text" placeholder="Address" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</body>
+</html>
